@@ -1,190 +1,152 @@
-////let name = 'Chris';
-////
-////function logName() {
-////	let name = 'Emily';
-////	console.log('name inside function is: ' + name);
-////}
-////
-////logName();
-////console.log('name outside function is: ' + name);
-////
-////
-//
-//
-//
-//function sing(callback) {
-//	console.log('la la la la la');
-//	if(callback instanceof Function) {
-//		callback();
-//	}
-//}
-//
-//
-//function meow() {
-//	console.log('meow meow');
-//}
-//
-//
-//
-////function multiplier(factor) {
-////	return x => x * factor;
-////}
-//
-//
-//
-//var numsArr = [1,2,4,6,7,8,10,13,15];
-//
-//
-//
-//function map(callback, arr) {
-//	var newArray = [];
-//    for(i=0; i<arr.length; i++) {
-//		var x = arr[i];
-//		newArray.push(callback(x));
-//    }
-//	return newArray;
-//}
-//
-//
-//
-//// Example of a RegExp
-//function validatePIN(pin) {
-//  return /^(\d{4}|\d{6})$/.test(pin)
-//}
-//
-//
-//function findOdd(A) {
-//  answer = 0;
-//  var obj = A.reduce(function(tally, number) {
-//    tally[number] = (tally[number] || 0) + 1;
-//    return tally;
-//  }, {});
-//  for(var key in obj) {
-//	  if(obj[key] % 2 !== 0) {
-//		  return Number(key);
-//	  }
-//  }
-//}
-//
-//
-//
-//function disemvowel(str) {
-//  return str.split('').filter(e => 
-//       e !== 'a'
-//    && e !== 'e'
-//    && e !== 'i'
-//    && e !== 'o'
-//    && e !== 'u'
-//    && e !== 'A'
-//    && e !== 'E'
-//    && e !== 'I'
-//    && e !== 'O'
-//    && e !== 'U').join('');
-//}
-//
-//disemvowel = str => str.replace(/[aeiou]/gi,'');
-//
-//
-//findEmailRegex = [\w._]+@\w+\.[a-z]{3}\b
-//
-//findPhoneNumber = \(?\d{3}[-.)]\s?\d{3}[.-]\d{4}
-//
-//
-////morse Code problem
-//decodeMorse = function(morseCode){
-//  function decodeMorseLetter(letter) {
-//    return MORSE_CODE[letter];
-//  }
-//  function decodeMorseWord(word) {
-//    return word.split(' ').map(decodeMorseLetter).join('');
-//  }
-//  return morseCode.trim().split('   ').map(decodeMorseWord).join(' ');
-//}
-//
-//
-////Sort string of words with numbers in them
-//function order(words) {
-//  
-//  return words.split(' ').sort(function(a, b) {
-//      return a.match(/\d/) - b.match(/\d/);
-//   }).join(' ');
-//} 
-//
-//
-//
-////sum of digits down to one number
-//function digital_root(n) {
-//  return (n - 1) % 9 + 1;
-//}
-//
-//
-//function digital_root(n) {
-//  var arr = n.toString().split('');
-//  while(arr.length > 1) {
-//    var answer = arr.reduce((a, c) => a + Number(c), 0);
-//    if(answer.toString().length === 1) {
-//      return answer;
-//    }
-//    arr = answer.toString().split('');
-//  }
-//  return n;
-//}
-//
-//
-//function humanReadable(seconds) {
-//	var pad = x => (x < 10) ? '0'+x : x;
-//  return `${pad(parseInt(seconds/3600))}:${pad(parseInt(seconds/60 % 60))}:${pad(seconds % 60)}`
-//}
-//
-//
-//
-//
-//							 
-////Best practice vs. mine							 
-//function alphabetPosition(text) {
-//  return text
-//    .toUpperCase()
-//    .match(/[a-z]/gi)
-//    .map( (c) => c.charCodeAt() - 64)
-//    .join(' ');
-//}
-//
-//
-//
-//
-//
-//console.time('regex');
-//
-//str = 'When I first brought my cat home from the humane society she was a mangy, pitiful animal. It cost a lot to adopt her: forty dollars. And then I had to buy litter, a litterbox, food, and dishes for her to eat out of. Two days after she came home with me she got taken to the pound by the animal warden. There\'s a leash law for cats in Fort Collins. If they\'re not in your yard they have to be on a leash. Anyway, my cat is my best friend. I\'m glad I got her. She sleeps under the covers with me when it\'s cold. Sometimes she meows a lot in the middle of the night and wakes me up, though. '
-//
-//function startsWithEndswith(str, starts, ends) {
-//		var regex = new RegExp('\\b' + starts +'\\w+' + ends + '\\b', 'gi');
-//		return str.match(regex);
-//}
-//
-//console.log(startsWithEndswith(str, 's', 'y'));
-//
-//console.timeEnd('regex');
-//
-//
-//
-//
-//var uniqueInOrder=function(iterable){
-//  var int = false;
-//  if(Array.isArray(iterable)) {
-//    iterable = iterable.join('');
-//    if(iterable[0] === "number") {
-//      int = true;
-//  	}
-//	}
-//  var arr = iterable.replace(/(\w)\1+/g, '$1').split('');
-//  if(int) {
-//    return arr.map(e => Number(e));
-//  }
-//  return arr;
-//}
-//
-//
+function map(callback, arr) {
+	var newArray = [];
+    for(i=0; i<arr.length; i++) {
+		var x = arr[i];
+		newArray.push(callback(x));
+    }
+	return newArray;
+}
+
+
+
+// Example of a RegExp
+function validatePIN(pin) {
+  return /^(\d{4}|\d{6})$/.test(pin)
+}
+
+
+function findOdd(A) {
+  answer = 0;
+  var obj = A.reduce(function(tally, number) {
+    tally[number] = (tally[number] || 0) + 1;
+    return tally;
+  }, {});
+  for(var key in obj) {
+	  if(obj[key] % 2 !== 0) {
+		  return Number(key);
+	  }
+  }
+}
+
+
+
+function disemvowel(str) {
+  return str.split('').filter(e => 
+       e !== 'a'
+    && e !== 'e'
+    && e !== 'i'
+    && e !== 'o'
+    && e !== 'u'
+    && e !== 'A'
+    && e !== 'E'
+    && e !== 'I'
+    && e !== 'O'
+    && e !== 'U').join('');
+}
+
+disemvowel = str => str.replace(/[aeiou]/gi,'');
+
+
+findEmailRegex = [\w._]+@\w+\.[a-z]{3}\b
+
+findPhoneNumber = \(?\d{3}[-.)]\s?\d{3}[.-]\d{4}
+
+
+//morse Code problem
+decodeMorse = function(morseCode){
+  function decodeMorseLetter(letter) {
+    return MORSE_CODE[letter];
+  }
+  function decodeMorseWord(word) {
+    return word.split(' ').map(decodeMorseLetter).join('');
+  }
+  return morseCode.trim().split('   ').map(decodeMorseWord).join(' ');
+}
+
+
+//Sort string of words with numbers in them
+function order(words) {
+  
+  return words.split(' ').sort(function(a, b) {
+      return a.match(/\d/) - b.match(/\d/);
+   }).join(' ');
+} 
+
+
+
+//sum of digits down to one number
+function digital_root(n) {
+  return (n - 1) % 9 + 1;
+}
+
+
+function digital_root(n) {
+  var arr = n.toString().split('');
+  while(arr.length > 1) {
+    var answer = arr.reduce((a, c) => a + Number(c), 0);
+    if(answer.toString().length === 1) {
+      return answer;
+    }
+    arr = answer.toString().split('');
+  }
+  return n;
+}
+
+
+function humanReadable(seconds) {
+	var pad = x => (x < 10) ? '0'+x : x;
+  return `${pad(parseInt(seconds/3600))}:${pad(parseInt(seconds/60 % 60))}:${pad(seconds % 60)}`
+}
+
+
+
+
+							 
+//Best practice vs. mine							 
+function alphabetPosition(text) {
+  return text
+    .toUpperCase()
+    .match(/[a-z]/gi)
+    .map( (c) => c.charCodeAt() - 64)
+    .join(' ');
+}
+
+
+
+
+
+console.time('regex');
+
+str = 'When I first brought my cat home from the humane society she was a mangy, pitiful animal. It cost a lot to adopt her: forty dollars. And then I had to buy litter, a litterbox, food, and dishes for her to eat out of. Two days after she came home with me she got taken to the pound by the animal warden. There\'s a leash law for cats in Fort Collins. If they\'re not in your yard they have to be on a leash. Anyway, my cat is my best friend. I\'m glad I got her. She sleeps under the covers with me when it\'s cold. Sometimes she meows a lot in the middle of the night and wakes me up, though. '
+
+function startsWithEndswith(str, starts, ends) {
+		var regex = new RegExp('\\b' + starts +'\\w+' + ends + '\\b', 'gi');
+		return str.match(regex);
+}
+
+console.log(startsWithEndswith(str, 's', 'y'));
+
+console.timeEnd('regex');
+
+
+
+
+var uniqueInOrder=function(iterable){
+  var int = false;
+  if(Array.isArray(iterable)) {
+    iterable = iterable.join('');
+    if(iterable[0] === "number") {
+      int = true;
+  	}
+	}
+  var arr = iterable.replace(/(\w)\1+/g, '$1').split('');
+  if(int) {
+    return arr.map(e => Number(e));
+  }
+  return arr;
+}
+
+
 
 
 function findAllItemsByParameter(arr, param) {
